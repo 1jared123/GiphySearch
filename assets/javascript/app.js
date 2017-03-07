@@ -17,34 +17,35 @@ function displayGifInfo() {
   }).done(function(response) {
     var results = response.data;
     console.log(results);
+    $(".results").empty();
 
-          for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < results.length; i++) {
 
-            // var gifyDiv = $("<div class='greatGif'><br>");
+      // var gifyDiv = $("<div class='greatGif'><br>");
 
-            var rating = results[i].rating;
+      var rating = results[i].rating;
 
-            var p = $("<p>").text("Rating: " + rating);
+      var p = $("<p>").text("Rating: " + rating);
 
-            var personImage = $("<img>");
+      var personImage = $("<img>");
 
-            personImage.addClass("pausePlay");
+      personImage.addClass("pausePlay");
 
-            personImage.attr("src", results[i].images.fixed_height_still.url);
+      personImage.attr("src", results[i].images.fixed_height_still.url);
 
-            personImage.attr("data-still", results[i].images.fixed_height_still.url);
+      personImage.attr("data-still", results[i].images.fixed_height_still.url);
 
-            personImage.attr("data-animate", results[i].images.fixed_height.url);
+      personImage.attr("data-animate", results[i].images.fixed_height.url);
 
-            personImage.attr("data-state", "still");
+      personImage.attr("data-state", "still");
 
-            // gifyDiv.prepend(p);
-            // gifyDiv.prepend(personImage);
+      // gifyDiv.prepend(p);
+      // gifyDiv.prepend(personImage);
 
-           $(".add-gifs").prepend(p);
-           $(".add-gifs").prepend(personImage);
-            };
-          })
+     $(".add-gifs").prepend(p);
+     $(".add-gifs").prepend(personImage);
+      };
+    })
 
   
 }
